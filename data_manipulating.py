@@ -21,6 +21,10 @@ def clean_data(CSV_PATH):
 
     data = data.drop(columns=COLUMNS_TO_DELETE, errors="ignore")
 
+    n_before = len(data)
+    data = data.drop_duplicates()
+    print(f"Usunięto {n_before - len(data)} duplikatów")
+
     data = data.loc[:,data.nunique()>1]
 
     data['Label']=data["Label"].apply(lambda x: 0 if x=='BENIGN' else 1)

@@ -22,7 +22,7 @@ def compare(x, y, weights, b, threshold=0.5):
     bad_detected = int(np.sum((pred == 1) & (y == 1)))
     safe_detected = int(np.sum((pred == 0) & (y == 0)))
 
-    print(f"Bad packets: {real_bad}, detedted: {bad_detected}")
+    print(f"Bad packets: {real_bad}, detected: {bad_detected}")
     print(f"Normal packets: {real_safe}, detected: {safe_detected}")
     print(f"Accuracy: {np.mean(pred == y):.4f}")
 
